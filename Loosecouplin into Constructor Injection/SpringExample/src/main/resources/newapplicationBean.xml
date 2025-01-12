@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <bean id="kuldipid" class="com.loose.coupling.UserDataProvider">
+        <property name="WebServiceDataProvider" value="Fetching data from web service "/>
+        <property name="UserDatabaseProvider" value="User Details from database"/>
+        <property name="NewDatabaseProvider" value="New Databse in Action"/>
+    </bean>
+
+    <bean id="mainid" class="com.loose.coupling.UserManager">
+        <constructor-arg ref="kuldipid"/>
+    </bean>
+</beans>
